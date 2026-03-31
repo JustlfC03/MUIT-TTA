@@ -10,7 +10,7 @@ Our method maintains robust and accurate annotation-free segmentation performanc
 
 ---
 
-## 1. Methodology Flowchart
+## Proposed method
 
 Our framework consists of two main stages: Source-Domain Pseudo-Anomaly Synthesis and Target-Domain Test-Time Adaptation (MUIT-TTA).
 
