@@ -58,7 +58,7 @@ MUIT-TTA/
 ## Datasets
 
 ### 📌 BHSD (Train & Test)
-- **Source:** [PhysioNet / GitHub](https://github.com/vlbthambawita/BHSD)  
+- **Source:** [GitHub](https://github.com/White65534/BHSD)  
 - **Training:** Only the 2,000 non-hemorrhage (normal) samples are used to synthesize pseudo-anomalies via `synthesize_anomalies.py`.  
 - **Testing:** 192 annotated hemorrhage cases are reserved for in-distribution evaluation.  
 
