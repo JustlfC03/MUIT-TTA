@@ -152,7 +152,7 @@ Our MUIT-TTA framework consistently outperforms mainstream anomaly detection bas
 ### 1. Localization Performance across Datasets
 
 <p align="center">
-  <img src="img/Fig6.png" width="900"/>
+  <img src="img/Fig6_01.png" width="900"/>
 </p>
 
 <p align="center">
@@ -168,7 +168,7 @@ Our MUIT-TTA framework consistently outperforms mainstream anomaly detection bas
 ### 2. Cross-Subtype Adaptation
 
 <p align="center">
-  <img src="img/Fig8.png" width="900"/>
+  <img src="img/Fig8_01.png" width="900"/>
 </p>
 
 <p align="center">
