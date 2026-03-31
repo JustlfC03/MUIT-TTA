@@ -1,8 +1,12 @@
 # MUIT-TTA: Annotation-Free Intracranial Hemorrhage Segmentation via Pseudo-Anomaly Synthesis and Test-Time Adaptation
 
-[![Stars](https://img.shields.io/github/stars/JustlfC03/MUIT-TTA?style=social)](https://github.com/JustlfC03/MUIT-TTA/stargazers)
-[![Forks](https://img.shields.io/github/forks/JustlfC03/MUIT-TTA?style=social)](https://github.com/JustlfC03/MUIT-TTA/network/members)
-[![Project Page](https://img.shields.io/badge/project-page-d9534f.svg)](https://JustlfC03.github.io/MUIT-TTA/) 
+<div align="center">
+
+[![Stars](https://img.shields.io/github/stars/JustlfC03/MUIT-TTA)](https://github.com/JustlfC03/MUIT-TTA)
+[![Forks](https://img.shields.io/github/forks/JustlfC03/MUIT-TTA)](https://github.com/JustlfC03/MUIT-TTA)
+[![Project Page](https://img.shields.io/badge/Project-Page-red)](https://justlfc03.github.io/MUIT-TTA/)
+
+</div>
 
 This repository provides the PyTorch implementation of the paper **"MUIT-TTA: Annotation-Free Intracranial Hemorrhage Segmentation via Pseudo-Anomaly Synthesis and Test-Time Adaptation"** 
 
