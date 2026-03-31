@@ -14,11 +14,10 @@ Our method maintains robust and accurate annotation-free segmentation performanc
 
 Our framework consists of two main stages: Source-Domain Pseudo-Anomaly Synthesis and Target-Domain Test-Time Adaptation (MUIT-TTA).
 
-> **[TODO: Replace with your actual image paths]**
-![Synthesis Pipeline](docs/synthesis.png) 
+![Synthesis Pipeline](img/Fig1.png) 
 *Figure 1: Multi-subtype pseudo-anomaly synthesis framework. Generating ICH, SAH, IVH, and SDH/EDH from normal brain CTs.*
 
-![MUIT-TTA Framework](docs/framework.png) 
+![MUIT-TTA Framework](img/Fig2.png) 
 *Figure 2: Overview of the MUIT-TTA framework. Integrating entropy minimization, uncertainty-weighted pseudo-labeling, and integrity constraints.*
 
 ---
