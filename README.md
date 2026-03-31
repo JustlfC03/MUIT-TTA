@@ -37,11 +37,15 @@ Our framework consists of two main stages: Source-Domain Pseudo-Anomaly Synthesi
 </p>
 
 ---
-## Repository Structure
+## 2. Repository Structure
+
+Based on the provided implementation, the repository is organized as follows:
+
 ```text
 MUIT-TTA/
 │
-├── synthesize_anomalies.py     # Generates 4 pseudo-anomaly subtypes (ICH, SAH, IVH, SDH) via morphological operations
+├── synthesize_anomalies.py     # Generates general pseudo-anomaly subtypes via morphological operations
+├── synthesize_sah_masks.py     # Specifically generates complex branch-like (fracture) pseudo-masks for Subarachnoid Hemorrhage (SAH)
 ├── dataset2D.py                # PyTorch Dataset class for 2D medical images with transformations
 │
 ├── nnunet2d.py                 # 2D nnU-Net backbone modified with Instance Normalization
@@ -51,7 +55,7 @@ MUIT-TTA/
 ├── run_training_2d.py          # Entry script for source domain pretraining
 │
 ├── test_nnunet.py              # Standard inference and metric computation (DSC, HD95, ASSD, PPV)
-└── run_tta.py                  # Entry script for Test-Time Adaptation inference
+└──  run_tta.py                  # Entry script for Test-Time Adaptation inference
 ```
 ---
 ## Datasets
