@@ -21,3 +21,20 @@ Our framework consists of two main stages: Source-Domain Pseudo-Anomaly Synthesi
 *Figure 2: Overview of the MUIT-TTA framework. Integrating entropy minimization, uncertainty-weighted pseudo-labeling, and integrity constraints.*
 
 ---
+## Repository Structure
+
+```text
+MUIT-TTA/
+│
+├── synthesize_anomalies.py     # Generates 4 pseudo-anomaly subtypes (ICH, SAH, IVH, SDH) via morphological operations
+├── dataset2D.py                # PyTorch Dataset class for 2D medical images with transformations
+│
+├── nnunet2d.py                 # 2D nnU-Net backbone modified with Instance Normalization
+├── tta_model.py                # Core MUIT-TTA adapter: Multi-view ensemble, uncertainty filtering, and integrity loss
+│
+├── train_source2D.py           # Core training loop, losses (Dice + CE), and evaluation metrics
+├── run_training_2d.py          # Entry script for source domain pretraining
+│
+├── test_nnunet.py              # Standard inference and metric computation (DSC, HD95, ASSD, PPV)
+├── run_tta.py                  # Entry script for Test-Time Adaptation inference
+└── requirements.txt            # Environment dependencies
