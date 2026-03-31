@@ -23,7 +23,6 @@ Our framework consists of two main stages: Source-Domain Pseudo-Anomaly Synthesi
 ---
 ## Repository Structure
 
-```text
 MUIT-TTA/
 │
 ├── synthesize_anomalies.py     # Generates 4 pseudo-anomaly subtypes (ICH, SAH, IVH, SDH) via morphological operations
@@ -38,3 +37,41 @@ MUIT-TTA/
 ├── test_nnunet.py              # Standard inference and metric computation (DSC, HD95, ASSD, PPV)
 ├── run_tta.py                  # Entry script for Test-Time Adaptation inference
 └── requirements.txt            # Environment dependencies
+
+---
+## Datasets
+
+This study strictly avoids using any real pathological annotations during the training phase.
+
+### 📌 BHSD (Train & Test)
+- **Source:** [PhysioNet / GitHub](https://github.com/vlbthambawita/BHSD)  
+- **Training:** Only the 2,000 non-hemorrhage (normal) samples are used to synthesize pseudo-anomalies via `synthesize_anomalies.py`.  
+- **Testing:** 192 annotated hemorrhage cases are reserved for in-distribution evaluation.  
+
+---
+
+### 📌 INSTANCE 2022 (Test Only)
+- **Source:** [Grand Challenge](https://instance.grand-challenge.org/)  
+- **Usage:** 100 scans are used as an external cross-domain test set.  
+
+---
+
+### 📌 CT-ICH (Test Only)
+- **Source:** [PhysioNet](https://physionet.org/content/ct-ich/1.3.1/)  
+- **Usage:** 36 positive cases are retained as an external cross-domain test set.  
+
+---
+
+### ⚙️ Preprocessing
+All 3D volumes are converted into 2D slices and saved as `.png` files before running the scripts.
+    data/
+    ├── images/   # input CT slices
+    ├── masks/    # corresponding masks (if available)
+
+---
+### Notes
+
+- No real lesion annotations are used during training.  
+- All anomaly patterns are generated via pseudo-anomaly synthesis.  
+- External datasets are used **only for evaluation**, ensuring a strict domain generalization setting.
+
