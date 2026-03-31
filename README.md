@@ -92,3 +92,55 @@ pip install torch==2.11.0 torchvision==0.26.0 torchaudio==2.11.0 --index-url [ht
 # Install core required packages
 pip install numpy==2.2.6 opencv-python==4.12.0.88 pillow==12.0.0 scipy==1.15.3 scikit-image==0.25.2 scikit-learn==1.7.2 tqdm==4.66.1 thop==0.1.1.post2209072238 matplotlib==3.10.8
 ```
+---
+## Training (Source Pretraining)
+
+The 2D nnU-Net backbone is trained exclusively on the synthesized pseudo-anomaly source domain.  
+We use the Adam optimizer with InstanceNorm2d.
+
+### Run Training
+
+```bash
+python run_training_2d.py --train_data_dir /path/to/your_train_data --checkpoint_dir /path/to/save_checkpoints
+```
+---
+## Inference (MUIT-TTA)
+
+During test-time adaptation, only the affine parameters of InstanceNorm2d layers are updated.  
+Evaluation metrics include **DSC, HD95, ASSD, and PPV**.
+
+### Baseline Inference (No TTA)
+
+```bash
+python test_nnunet.py --checkpoint_path /path/to/your_checkpoint.pth --test_data_dir /path/to/your_test_data
+```
+
+### MUIT-TTA Inference
+
+```bash
+python run_tta.py \
+    --checkpoint_path /path/to/your_checkpoint.pth --test_data_dir /path/to/your_test_data --steps 10 --episodic --use_pseudo_label --pseudo_label_threshold 0.25 --pseudo_label_weight 0.9 --output_dir /path/to/save_results
+```
+
+## Quantitative Results
+
+Our MUIT-TTA framework consistently outperforms mainstream anomaly detection baselines under the strict setting of training **without real lesion annotations**.
+
+### Performance on INSTANCE 2022 Dataset
+
+| Method       | DSC (%) ↑ | HD95 (mm) ↓        | PPV (%) ↑        | ASSD ↓           |
+|-------------|----------|--------------------|------------------|------------------|
+| RD4AD       | 35.34    | 143.33 ± 137.09    | 23.37 ± 26.06    | 59.69 ± 143.75   |
+| AE-FLOW     | 34.25    | 156.10 ± 139.57    | 23.25 ± 22.36    | 73.69 ± 31.85    |
+| DAE         | 31.43    | 163.79 ± 153.51    | 13.70 ± 20.25    | 73.11 ± 163.47   |
+| Skip-TS     | 38.63    | 193.49 ± 293.00    | 27.04 ± 27.32    | 142.49 ± 308.26  |
+| ReContrast  | 48.69    | 126.13 ± 65.77     | 30.54 ± 27.45    | 83.55 ± 49.33    |
+| GatingAno   | 7.13     | 63.18 ± 50.47      | 41.39 ± 38.68    | 48.12 ± 48.13    |
+| ESC-DRKD    | 13.41    | 158.30 ± 40.41     | 6.99 ± 8.12      | 84.64 ± 34.05    |
+| MMRAD       | 46.34    | 82.67 ± 69.03      | 52.22 ± 47.21    | 54.08 ± 59.61    |
+| INP-Former  | 49.49    | 143.60 ± 57.43     | 31.81 ± 25.73    | 37.72 ± 41.77    |
+| **Ours**    | **79.01**| **44.27 ± 64.32**  | **69.45 ± 34.00**| **23.09 ± 43.01**|
+
+---
+
+> 📌 For full results on **BHSD** and **CT-ICH** datasets, please refer to the main paper.
