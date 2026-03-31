@@ -142,7 +142,7 @@ python test_nnunet.py --checkpoint_path /path/to/your_checkpoint.pth --test_data
 
 ```bash
 python run_tta.py \
-    --checkpoint_path /path/to/your_checkpoint.pth --test_data_dir /path/to/your_test_data --steps 10 --episodic --use_pseudo_label --pseudo_label_threshold 0.25 --pseudo_label_weight 0.9 --output_dir /path/to/save_results
+    --checkpoint_path /path/to/your_checkpoint.pth --test_data_dir /path/to/your_test_data  --episodic --use_pseudo_label --output_dir /path/to/save_results
 ```
 
 ## Quantitative Results
