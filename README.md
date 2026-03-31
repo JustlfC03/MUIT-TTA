@@ -22,7 +22,7 @@ Our framework consists of two main stages: Source-Domain Pseudo-Anomaly Synthesi
 
 ---
 ## Repository Structure
-
+```text
 MUIT-TTA/
 │
 ├── synthesize_anomalies.py     # Generates 4 pseudo-anomaly subtypes (ICH, SAH, IVH, SDH) via morphological operations
@@ -37,11 +37,9 @@ MUIT-TTA/
 ├── test_nnunet.py              # Standard inference and metric computation (DSC, HD95, ASSD, PPV)
 ├── run_tta.py                  # Entry script for Test-Time Adaptation inference
 └── requirements.txt            # Environment dependencies
-
+```
 ---
 ## Datasets
-
-This study strictly avoids using any real pathological annotations during the training phase.
 
 ### 📌 BHSD (Train & Test)
 - **Source:** [PhysioNet / GitHub](https://github.com/vlbthambawita/BHSD)  
@@ -63,15 +61,34 @@ This study strictly avoids using any real pathological annotations during the tr
 ---
 
 ### ⚙️ Preprocessing
-All 3D volumes are converted into 2D slices and saved as `.png` files before running the scripts.
-    data/
-    ├── images/   # input CT slices
-    ├── masks/    # corresponding masks (if available)
 
+All 3D CT volumes are converted into 2D slices, where brain regions are extracted to remove surrounding background (black borders), and each slice is uniformly resized to a fixed resolution of **256 × 256** for consistent model input.
+
+The expected data structure is as follows:
+
+```text
+data/
+├── images/   # input CT slices
+└── masks/    # corresponding masks
+```
 ---
-### Notes
 
-- No real lesion annotations are used during training.  
-- All anomaly patterns are generated via pseudo-anomaly synthesis.  
-- External datasets are used **only for evaluation**, ensuring a strict domain generalization setting.
+## Environment
 
+Please ensure your environment matches the following core specifications to guarantee reproducibility:
+
+* **Python:** 3.10
+* **CUDA:** 12.1
+* **PyTorch:** 2.11.0
+
+```bash
+# Create and activate conda environment
+conda create -n muit_tta python=3.10 -y
+conda activate muit_tta
+
+# Install PyTorch (CUDA 12.1)
+pip install torch==2.11.0 torchvision==0.26.0 torchaudio==2.11.0 --index-url [https://download.pytorch.org/whl/cu121](https://download.pytorch.org/whl/cu121)
+
+# Install core required packages
+pip install numpy==2.2.6 opencv-python==4.12.0.88 pillow==12.0.0 scipy==1.15.3 scikit-image==0.25.2 scikit-learn==1.7.2 tqdm==4.66.1 thop==0.1.1.post2209072238 matplotlib==3.10.8
+```
