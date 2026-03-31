@@ -51,8 +51,7 @@ MUIT-TTA/
 ├── run_training_2d.py          # Entry script for source domain pretraining
 │
 ├── test_nnunet.py              # Standard inference and metric computation (DSC, HD95, ASSD, PPV)
-├── run_tta.py                  # Entry script for Test-Time Adaptation inference
-└── requirements.txt            # Environment dependencies
+└── run_tta.py                  # Entry script for Test-Time Adaptation inference
 ```
 ---
 ## Datasets
