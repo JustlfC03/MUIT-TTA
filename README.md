@@ -144,3 +144,37 @@ Our MUIT-TTA framework consistently outperforms mainstream anomaly detection bas
 ---
 
 > 📌 For full results on **BHSD** and **CT-ICH** datasets, please refer to the main paper.
+
+---
+
+## Qualitative Results
+
+### 1. Localization Performance across Datasets
+
+<p align="center">
+  <img src="img/Fig6.png" width="900"/>
+</p>
+
+<p align="center">
+  <em>
+  Figure 6: Qualitative comparison of anomaly localization across INSTANCE, BHSD, and CT-ICH datasets. 
+  The top row shows anomaly heatmaps, while the bottom row shows corresponding segmentation masks with slice-level Dice scores. 
+  Our method effectively suppresses false positives and preserves accurate boundary structures.
+  </em>
+</p>
+
+---
+
+### 2. Cross-Subtype Adaptation
+
+<p align="center">
+  <img src="img/Fig8.png" width="900"/>
+</p>
+
+<p align="center">
+  <em>
+  Figure 8: Qualitative comparison of test-time adaptation (TTA) methods across four hemorrhage subtypes (ICH, SAH, IVH, EDH). 
+  From left to right: synthetic source samples, real target inputs, ground truth, and predictions from different methods. 
+  MUIT-TTA produces more complete and structurally consistent segmentation results under domain shift.
+  </em>
+</p>
