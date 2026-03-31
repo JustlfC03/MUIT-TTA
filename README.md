@@ -201,3 +201,8 @@ Our MUIT-TTA framework consistently outperforms mainstream anomaly detection bas
   MUIT-TTA produces more complete and structurally consistent segmentation results under domain shift.
   </em>
 </p>
+
+---
+
+## Citation
+If you find this repository or our work useful, please consider citing:
