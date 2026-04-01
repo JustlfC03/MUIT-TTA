@@ -19,19 +19,6 @@ from test_nnunet import (
     compute_distance_metrics,
     compute_best_dsc
 )
-"""
-python run_tta.py \
-    --checkpoint_path /data/cyf/codes/TTA/nnunet/checkpoints_data25_dropout0.2_norm_miccai/unet2d_best_BHSD.pth \
-    --lr 1e-2 \
-    --steps 17 \
-    --episodic \
-    --use_pseudo_label \
-    --pseudo_label_threshold 0.25 \
-    --pseudo_label_weight 0.9 \
-    --output_dir tta_results \
-    --skip_baseline \
-    --device cuda:0 \
-"""
 
 # Define local metric functions
 def calculate_distance_metrics(pred, target):
